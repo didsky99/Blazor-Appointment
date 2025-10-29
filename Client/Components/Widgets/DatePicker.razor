@@ -1,0 +1,202 @@
+@using System.Globalization
+
+<head>
+    <link rel="stylesheet" href="css/components/DatePicker.css" />
+</head>
+
+<!-- <TelerikMediaQuery Media="@SmallScreenMediaQuery" OnChange="@((doesMatch) => IsMobile = doesMatch)"></TelerikMediaQuery>
+<TelerikMediaQuery Media="@LargeScreenMediaQuery" OnChange="@((doesMatch) => isDesktop = doesMatch)"></TelerikMediaQuery> -->
+
+<div class="container balance-card-inner d-grid gap-0 gap-md-3 p-1 p-md-3">
+    <section class="bg-white-calendar rounded-3 flex-grow-1" aria-label="Calendar">
+        <header class="calendar-header d-flex justify-content-between align-items-center">
+            <button aria-label="Previous month" @onclick="PrevMonth">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="ut-bd-lg-semibold text-center flex-grow-1">Monthly Recap - @GetDateFormat(CurrentDate)</div>
+            <button aria-label="Next month" @onclick="NextMonth">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </header>
+        <table class="calendar-table w-100 mb-3">
+            <thead>
+                <tr>
+                    @foreach (var day in DaysOfWeek)
+                    {
+                        string style = day == "Sun" ? "color: red;" : "";
+                        <th style="@style">@day</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (List<DateTime?> week in CalendarMatrix)
+                {
+                    <tr>
+                        @foreach (var day in week)
+                        {
+                            <td style="@GetDayStyle(day)" class="@GetDayClass(day)">
+                                @if (day.HasValue)
+                                {
+                                    <div>@day.Value.Day</div>
+                                }
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</div>
+
+@code {
+
+    //[Parameter]
+    //public List<EmployeeAttendanceRecord> records { get; set; } = [];
+
+    [Parameter]
+    public EventCallback<DateTime> OnMonthChanged { get; set; }
+    private DateTime CurrentDate = DateTime.Today;
+    private int CurrentMonth => CurrentDate.Month;
+    private int CurrentYear => CurrentDate.Year;
+    private string MonthName => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(CurrentMonth);
+    private string[] DaysOfWeek = new[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
+
+    private List<List<DateTime?>> CalendarMatrix = new();
+
+    // Simulated events
+    private List<DateTime> UtEvents = new() { new DateTime(2025, 7, 1), new DateTime(2025, 7, 24) };
+    private List<DateTime> PublicHolidays = new() { new DateTime(2025, 7, 6) };
+
+    private bool IsMobile { get; set; }
+    private bool isDesktop { get; set; }
+
+    /*private string SmallScreenMediaQuery { get; set; } = "(max-width: 390px)";
+    private string LargeScreenMediaQuery { get; set; } = "(min-width: 1200px)";*/
+
+    private string GetDateFormat(DateTime date)
+    {
+        string text = "";
+
+        //if(IsMobile){
+        // text = date.ToString("MMM yyyy");
+        //} else if(isDesktop){
+        text = date.ToString("MMMM yyyy");
+        //}
+
+        return text;
+    }
+
+    protected override void OnInitialized()
+    {
+        GenerateCalendar();
+    }
+
+    private void GenerateCalendar()
+    {
+        //to do: add trailing dates from previous/next month
+
+        CalendarMatrix.Clear();
+        var firstDay = new DateTime(CurrentYear, CurrentMonth, 1);
+        var daysInMonth = DateTime.DaysInMonth(CurrentYear, CurrentMonth);
+
+        var currentWeek = new List<DateTime?>();
+        int startDay = ((int)firstDay.DayOfWeek + 6) % 7; // Monday = 0
+
+        //below's the prev month trailing dates, switch add null with the ghostdates
+        for (int i = 0; i < startDay; i++)
+        {
+            //currentWeek.Add(null);
+            DateTime trail = new DateTime(CurrentYear, CurrentMonth, 1).AddDays(i - startDay);
+            currentWeek.Add(trail);
+        }
+
+        for (int day = 1; day <= daysInMonth; day++)
+        {
+            currentWeek.Add(new DateTime(CurrentYear, CurrentMonth, day));
+            if (currentWeek.Count == 7)
+            {
+                CalendarMatrix.Add(currentWeek);
+                currentWeek = new List<DateTime?>();
+            }
+        }
+
+        //here's the trailing dates for next month
+        if (currentWeek.Count > 0)
+        {
+            int trail = 0;
+            while (currentWeek.Count < 7)
+            {
+                //currentWeek.Add(null);
+
+                trail++;
+                DateTime add = new DateTime(CurrentYear, CurrentMonth, trail).AddMonths(1);
+                currentWeek.Add(add);
+            }
+
+            CalendarMatrix.Add(currentWeek);
+        }
+
+        OnMonthChanged.InvokeAsync(new DateTime(CurrentYear, CurrentMonth, 1));
+    }
+
+    private string GetDayStyle(DateTime? date)
+    {
+        var style = "";
+        if (date.HasValue)
+        {
+
+            var d = date.Value;
+
+            if (d.Month != CurrentMonth) style += "color: lightgray;";
+            else if (d.DayOfWeek.ToString() == "Sunday") style += "color: red"; //if sunday
+
+            if (UtEvents.Contains(d))
+            {
+                style = "background-color: #FFF0CC; color: black;";
+            }
+            else if (PublicHolidays.Contains(d))
+            {
+                style = "background-color: #FCDAE2; color: black;";
+            }
+        }
+        return style;
+    }
+    private string GetDayClass(DateTime? date)
+    {
+        var classes = "";
+
+        if (!date.HasValue)
+        {
+            classes += "bg-light text-muted ";
+        }
+        else
+        {
+            var d = date.Value;
+            if (d.Date == DateTime.Today) classes += "border border-success ";
+
+            /*EmployeeAttendanceRecord? thisDay = records.Where(a => a.EventDate == date.Value).SingleOrDefault();
+
+            if(thisDay == null
+            || (thisDay != null && thisDay.Result == null)
+            || (thisDay != null && thisDay.Result.Contains("Off"))) classes +="";
+            else if(thisDay.Result.Contains("UNFIT")) classes += "underline-red ";
+            else if(thisDay.Result.Contains("Catatan")) classes += "underline-primary ";
+            else classes += "underline-green ";*/
+        }
+        return classes;
+
+    }
+
+    private void PrevMonth()
+    {
+        CurrentDate = CurrentDate.AddMonths(-1);
+        GenerateCalendar();
+    }
+
+    private void NextMonth()
+    {
+        CurrentDate = CurrentDate.AddMonths(1);
+        GenerateCalendar();
+    }
+
+}

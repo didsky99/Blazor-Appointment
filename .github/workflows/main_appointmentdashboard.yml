@@ -33,7 +33,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: blazor-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ./publish
+
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,6 +45,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: blazor-app
+          path: ./publish
+
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -54,3 +57,4 @@ jobs:
           package: .
 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EE4E86F83384C7EA72A1192E312F93A }}
+

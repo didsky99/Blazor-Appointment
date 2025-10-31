@@ -32,29 +32,22 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          name: blazor-app
+          path: ./publish
+
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
-      
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_908C8D752421484EADC4DEE67F68C4BD }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8D41FE696C77457CBC247F48CBC6B752 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A5EFDB0E7261442C87DE381ACFEE4269 }}
+          name: blazor-app
+          path: ./publish
 
+      
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
@@ -62,4 +55,6 @@ jobs:
           app-name: 'AppointmentDashboard'
           slot-name: 'Production'
           package: .
-          
+
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EE4E86F83384C7EA72A1192E312F93A }}
+

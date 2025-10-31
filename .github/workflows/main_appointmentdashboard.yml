@@ -27,7 +27,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish ./Server/BlazorAppointmentSystem.Server.csproj -c Release -o publish_output
+        run: dotnet publish ./Server/Server.csproj -c Release -o publish_output
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -57,5 +57,6 @@ jobs:
           package: .
 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EE4E86F83384C7EA72A1192E312F93A }}
+
 
 

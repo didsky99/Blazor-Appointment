@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\Client.csproj": {}
+    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\Client.csproj": {
+    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\Client.csproj",
+        "projectPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\client\\Client.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\obj\\",
+        "outputPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

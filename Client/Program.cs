@@ -9,26 +9,37 @@ var culture = new CultureInfo("id-ID");
 CultureInfo.DefaultThreadCurrentCulture = culture;
 CultureInfo.DefaultThreadCurrentUICulture = culture;
 
-
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-// Root component
+// Root components
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-// Register HttpClient (points to Server API)
+// 🔧 Determine environment & API base URL dynamically
+string apiBaseUrl;
+
+if (app.Environment.IsDevelopment())
+{
+    apiBaseUrl = "https://localhost:7250/"; // local development server
+}
+else
+{
+    apiBaseUrl = builder.HostEnvironment.BaseAddress;
+}
+
+// 🧩 Register HttpClient with dynamic base URL
 builder.Services.AddScoped(sp => new HttpClient
 {
-    BaseAddress = new Uri("https://localhost:7250/")
+    BaseAddress = new Uri(apiBaseUrl)
 });
 
 // Register MudBlazor services
 builder.Services.AddMudServices();
 
-
+// Localization
 builder.Services.AddLocalization();
 
-// Register custom service for API access
+// Custom API access services
 builder.Services.AddScoped<AppointmentService>();
 builder.Services.AddScoped<CompanyService>();
 

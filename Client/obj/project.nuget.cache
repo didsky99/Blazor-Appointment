@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pvc7CKzdZWU=",
+  "dgSpecHash": "BpC3mqfeS94=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\Client.csproj",
+  "projectFilePath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\client\\Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hp\\.nuget\\packages\\blazorcalendar\\2.7.1\\blazorcalendar.2.7.1.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.10\\microsoft.aspnetcore.authorization.9.0.10.nupkg.sha512",

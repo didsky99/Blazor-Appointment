@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Client",
   "resources": {
-    "hash": "sha256-wKmg0QqSc4WIV4PgsCp87EoG8k06MYKR6dRtaVTTPeQ=",
+    "hash": "sha256-EmCy0wsVvH/8QnCOvBzWyQcCuijzEasyhYYuEoVcVOk=",
     "fingerprinting": {
       "BlazorCalendar.r3q6pde7nj.wasm": "BlazorCalendar.wasm",
       "Microsoft.AspNetCore.Authorization.50odlujk1g.wasm": "Microsoft.AspNetCore.Authorization.wasm",
@@ -209,10 +209,10 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "Shared.swfkbjq3s8.wasm": "Shared.wasm",
-      "Shared.ingef4ihwf.pdb": "Shared.pdb",
-      "Client.5mx94pvxw6.wasm": "Client.wasm",
-      "Client.em98uy8dvk.pdb": "Client.pdb"
+      "Shared.7hwsr6i0w8.wasm": "Shared.wasm",
+      "Shared.4bvh3jwsri.pdb": "Shared.pdb",
+      "Client.tt0yl0s3wf.wasm": "Client.wasm",
+      "Client.fg86x4spg4.pdb": "Client.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.l4ptthxatg.js": "sha256-ddUN4+taa/Qv7Mr8mLpunJO+0Xw3ViOqBvedhe57/hA="
@@ -430,12 +430,12 @@
       "WindowsBase.ahs9krftg4.wasm": "sha256-bgi2FHdT0ABsUP1yKQQ2AP8qfo1V/bS/4cJFE4OUHX8=",
       "mscorlib.k5iaovx9v7.wasm": "sha256-mEFLDERlY1HMNQHzh68xOPawXvI48O1fHW9PbfXugb4=",
       "netstandard.6sr1qvn64m.wasm": "sha256-Gpf+qEqCYaCB6zqI5sNPIurnfpwRtfcWksgf3CW6mHE=",
-      "Shared.swfkbjq3s8.wasm": "sha256-jAShWHmC0BEsvW67y5H/7ik/jqrSbOeXL+a1AKXnFvE=",
-      "Client.5mx94pvxw6.wasm": "sha256-bcrow03/tFsCs4fzFgrfhfJsKKMhh7fsTqVxXGp4wj8="
+      "Shared.7hwsr6i0w8.wasm": "sha256-lXk4dj+JhvmP95OvqU8O+x0rd4goC9e9LsPYpxb4vdk=",
+      "Client.tt0yl0s3wf.wasm": "sha256-se3+qAHGza1fhkpirs8ovdMYbEQFcxT4BSA2EYYpsqo="
     },
     "pdb": {
-      "Shared.ingef4ihwf.pdb": "sha256-zqrSJDHgrbhZmR47Q+r2gWmZXRpaor1jpU9PcLePo+Q=",
-      "Client.em98uy8dvk.pdb": "sha256-Src+FlFtSauyeCH2YPAjft8Wlxb+2BuPn8edjtZbqDA="
+      "Shared.4bvh3jwsri.pdb": "sha256-wMfn+Ywjww5jp1QCvQIswmNhgiolusoQnrfjN1hjTdk=",
+      "Client.fg86x4spg4.pdb": "sha256-sT7J/FhL4nKEuE+BlbB57ATtFejOfqpYgWLe4tJF71I="
     }
   },
   "cacheBootResources": true,

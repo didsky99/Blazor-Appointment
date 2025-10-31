@@ -56,8 +56,9 @@ jobs:
         with:
           app-name: 'AppointmentDashboard'
           slot-name: 'Production'
-          package: ./publish_output
+          package: ${{ env.DOTNET_ROOT }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EE4E86F83384C7EA72A1192E312F93A }}
+
 
 
 

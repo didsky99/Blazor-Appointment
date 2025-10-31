@@ -1,56 +1,61 @@
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Scrutor;
+using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Components.WebAssembly.Server;
+using BlazorAppointmentSystem.Server.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowBlazorClient",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5062", "https://localhost:5062") // client URLs
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
+// 🩶 1️⃣ Add DbContext
+builder.Services.AddDbContext<AppointmentDbContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    options.UseSqlServer(connectionString);
+});
+
+// 🩶 2️⃣ Add Controllers & Swagger
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.Scan(
-    scan => scan
-    .FromAssemblyOf<Program>()
-    .AddClasses()
-    .AsImplementedInterfaces()
-    .WithScopedLifetime()
-);
+// 🩶 3️⃣ Add Razor + Blazor
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ✅ Enable CORS before MapControllers
+app.UseCors("AllowBlazorClient");
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+
+// 🩶 4️⃣ Middleware setup
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseBlazorFrameworkFiles();   // ✅ Important for Blazor WASM
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseRouting();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+app.MapControllers();
+//app.MapBlazorHub();
+app.MapFallbackToFile("index.html");
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

@@ -32,13 +32,13 @@ jobs:
 
       # 🔧 IMPORTANT: Publish the Server project — this will also bundle Client into /wwwroot
       - name: Publish Server project
-        run: dotnet publish ./Server/Server.csproj -c Release -o ./publish_output
+        run: dotnet publish ./Server/Server.csproj -c Release -o ${{ env.DOTNET_ROOT }}/myapp
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: blazor-app
-          path: ./publish_output
+          path: ${{ env.DOTNET_ROOT }}/myapp
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,7 +49,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: blazor-app
-          path: ./publish_output
+          path: ${{ env.DOTNET_ROOT }}/myapp
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
@@ -58,6 +58,7 @@ jobs:
           slot-name: 'Production'
           package: ./publish_output
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EE4E86F83384C7EA72A1192E312F93A }}
+
 
 
 

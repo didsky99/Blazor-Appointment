@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\Shared\\Shared.csproj": {}
+    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\Shared\\Shared.csproj": {
+    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\Shared\\Shared.csproj",
+        "projectPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -55,7 +55,7 @@ app.UseBlazorFrameworkFiles();   // ✅ Important for Blazor WASM
 app.UseRouting();
 
 app.MapControllers();
-//app.MapBlazorHub();
-app.MapFallbackToFile("index.html");
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
 
 app.Run();

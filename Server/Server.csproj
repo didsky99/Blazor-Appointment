@@ -5,6 +5,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <SpaRoot>../Client/</SpaRoot>
+    <SpaStaticAssets>true</SpaStaticAssets>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,5 +26,10 @@
     <ProjectReference Include="..\Client\Client.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
+
+  <Target Name="PublishBlazorClient" AfterTargets="ComputeFilesToPublish">
+    <Exec Command="dotnet publish $(SpaRoot) -c $(Configuration) -o $(PublishDir)ClientApp" />
+  </Target>
+
 
 </Project>

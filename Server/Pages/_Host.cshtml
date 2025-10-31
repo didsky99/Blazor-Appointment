@@ -1,0 +1,26 @@
+@page "/"
+@namespace BlazorAppointmentSystem.Server.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Blazor Appointment System</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="BlazorAppointmentSystem.Client.styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <app>
+        <component type="typeof(App)" render-mode="WebAssemblyPrerendered" />
+    </app>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>

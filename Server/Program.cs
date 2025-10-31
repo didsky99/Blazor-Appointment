@@ -12,7 +12,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowBlazorClient",
         policy =>
         {
-            policy.WithOrigins("http://localhost:5062", "https://localhost:5062") // client URLs
+            policy.WithOrigins(
+                "http://localhost:5062",
+                "https://localhost:5062",
+                "https://appointmentdashboard-ayd2ahcadpg7hqbe.indonesiacentral-01.azurewebsites.net/"
+                ) // client URLs
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });

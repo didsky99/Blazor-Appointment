@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read # required for actions/checkout
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -23,23 +23,27 @@ jobs:
         with:
           dotnet-version: '9.x'
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: dotnet publish
+      # Build the full solution (Client + Server + Shared)
+      - name: Build the solution
+        run: dotnet build BlazorAppointmentSystem.sln --configuration Release --no-restore
+
+      # 🔧 IMPORTANT: Publish the Server project — this will also bundle Client into /wwwroot
+      - name: Publish Server project
         run: dotnet publish ./Server/Server.csproj -c Release -o ./publish_output
 
-      - name: Upload artifact for deployment job
+      - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: blazor-app
           path: ./publish_output
 
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -48,13 +52,14 @@ jobs:
           path: ./publish_output
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'AppointmentDashboard'
           slot-name: 'Production'
           package: ./publish_output
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EE4E86F83384C7EA72A1192E312F93A }}
+
+
 
 
 

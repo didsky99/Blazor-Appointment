@@ -3,6 +3,9 @@ build_property.EnableAotAnalyzer =
 build_property.EnableSingleFileAnalyzer = 
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudAllowedAttributeList = 
 build_property.TargetFramework = net9.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -11,51 +14,47 @@ build_property.InvariantGlobalization = false
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = browser
-build_property.RootNamespace = Client
-build_property.RootNamespace = Client
-build_property.ProjectDir = C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\Blazor Appointment\client\
+build_property.RootNamespace = BlazorAppointmentSystem.Client
+build_property.RootNamespace = BlazorAppointmentSystem.Client
+build_property.ProjectDir = C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\Blazor Appointment\client
+build_property.MSBuildProjectDirectory = C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/Blazor Appointment/client/App.razor]
+[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/BlazorAppointmentSystem/Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/Blazor Appointment/client/Components/Widgets/DatePicker.razor]
+[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/BlazorAppointmentSystem/Client/Components/Design/AppointmentForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEZXNpZ25cQXBwb2ludG1lbnRGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/BlazorAppointmentSystem/Client/Components/Widgets/DatePicker.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xXaWRnZXRzXERhdGVQaWNrZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/Blazor Appointment/client/Pages/CalendarTest.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FsZW5kYXJUZXN0LnJhem9y
+[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/BlazorAppointmentSystem/Client/Pages/AppointmentList/component/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwb2ludG1lbnRMaXN0XGNvbXBvbmVudFxJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/Blazor Appointment/client/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/BlazorAppointmentSystem/Client/Pages/Calendar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FsZW5kYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/Blazor Appointment/client/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/Blazor Appointment/client/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/Blazor Appointment/client/_Imports.razor]
+[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/BlazorAppointmentSystem/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/Blazor Appointment/client/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-tmopy668it
+[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/BlazorAppointmentSystem/Client/Shared/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExheW91dFxNYWluTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-qtl9iy9hsf
 
-[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/Blazor Appointment/client/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-9qkkwgv1yd
+[C:/Users/Hp/OneDrive/Documents/Didid/Dimas Ariadi Widodo/Project/BlazorAppointmentSystem/Client/Shared/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExheW91dFxOYXZNZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-6b5okl2eqf

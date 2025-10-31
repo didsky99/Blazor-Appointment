@@ -1,0 +1,51 @@
+﻿<head>
+    <link rel />
+</head>
+
+<MudAppBar Elevation="1">
+    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
+    <MudSpacer />
+    <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"
+        Href="https://github.com/MudBlazor/MudBlazor" Target="_blank" />
+</MudAppBar>
+<MudDrawer @bind-Open="@_open" Width="@_width" Height="@_height" Elevation="1" Variant="@DrawerVariant.Mini">
+    <MudDrawerHeader Class="@drawerHeaderClass">
+        @if (!_open)
+        {
+            <MudIcon Icon="@Icons.Material.Filled.ListAlt" Title="App" Class="me-2" />
+        }
+        @if (_open)
+        {
+            <MudText Typo="Typo.h6" Class="d-flex align-center justify-content-between">
+                <MudIcon Icon="@Icons.Material.Filled.ListAlt" Title="App" Class="me-2" />
+                Appointment Dashboard
+            </MudText>
+        }
+    </MudDrawerHeader>
+    <MudNavMenu>
+        @if (_open)
+        {
+            <MudText Typo="Typo.h6" Class="px-4">Menu</MudText>
+        }
+        @* <MudText Typo="Typo.body2" Class="px-4 mud-text-secondary">One-Stop Solution</MudText> *@
+        <MudDivider Class="my-2" />
+        <MudNavLink Href="/Appointments" Icon="@Icons.Material.Filled.List">
+            Appointments
+        </MudNavLink>
+        <MudNavGroup Title="Settings" Expanded="false" Icon="@Icons.Material.Filled.Settings">
+            <MudNavLink Href="/holiday" Icon="@Icons.Material.Filled.CalendarMonth">Holidays</MudNavLink>
+        </MudNavGroup>
+    </MudNavMenu>
+</MudDrawer>
+
+@code {
+    private bool _open = true;
+    private string _width = "300px", _height = "100%";
+    private string drawerHeaderClass = "";
+
+    private void ToggleDrawer()
+    {
+        _open = !_open;
+        if (_open) { drawerHeaderClass = ""; } else { drawerHeaderClass = "p-0"; }
+    }
+}

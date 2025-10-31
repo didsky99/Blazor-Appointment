@@ -1,0 +1,217 @@
+@inject IDialogService DialogService
+@inject NavigationManager NavManager
+@using BlazorAppointmentSystem.Shared.Models
+@inject AppointmentService AppointmentService
+@inject CompanyService CompanyService
+
+
+@if (UseForm)
+{
+    <MudDialog ContentStyle="width: 400px;">
+        <TitleContent>
+            <MudText Typo="Typo.h6">
+                <MudIcon Icon="@Icons.Material.Filled.Edit" Class="mr-3 mb-n1" />
+                @Title
+            </MudText>
+        </TitleContent>
+        <DialogContent>
+            <MudForm Model="@Model" @ref="form" Validation="@ModelValidator" Spacing="4">
+                <MudTextField Variant="Variant.Outlined" @bind-Value="Model.CustId" Style="display: none;" />
+                <MudTextField Variant="Variant.Outlined" @bind-Value="Model.Title" Label="Title" Required="true"
+                    RequiredError="Please input appointment title." />
+                <MudTextField Variant="Variant.Outlined" @bind-Value="Model.Description" Label="Description"
+                    Required="false" Lines="3" />
+                <MudTextField Variant="Variant.Outlined" @bind-Value="Model.CustName" Label="CustName" Required="true"
+                    RequiredError="Name is required!" />
+                <MudSelect Disabled="@_disabled" @bind-Value="Model.CustCompany" Variant="Variant.Outlined" Label="Company"
+                    Dense="true" Placeholder="Select Company" Clearable="true">
+                    @if (CompanyList != null)
+                    {
+                        @foreach (var company in CompanyList)
+                        {
+                            <MudSelectItem T="string" Value="@company.Name">@company.Name</MudSelectItem>
+                        }
+                    }
+                </MudSelect>
+                <MudTextField T="DateTime?" Format="s" Variant="Variant.Outlined" @bind-Value="Model.StartTime"
+                    InputType="InputType.DateTimeLocal" Label="StartTime" Required="true"
+                    RequiredError="Please input appointment time." />
+                <MudTextField T="DateTime?" Format="s" Variant="Variant.Outlined" @bind-Value="Model.EndTime"
+                    InputType="InputType.DateTimeLocal" Label="EndTime" Required="true"
+                    RequiredError="Please input appointment time." />
+            </MudForm>
+        </DialogContent>
+        <DialogActions>
+            <MudButton OnClick="Cancel">Cancel</MudButton>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Submit" Disabled="@(!form?.IsValid ?? true)">
+                Save</MudButton>
+        </DialogActions>
+    </MudDialog>
+}
+else
+{
+    <MudDialog>
+        <TitleContent>
+            <MudText Typo="Typo.h6">
+                <MudIcon Icon="@Icons.Material.Filled.Edit" Class="mr-3 mb-n1" />
+                @Title
+            </MudText>
+        </TitleContent>
+        <DialogContent>
+            <MudText>@ContentText</MudText>
+        </DialogContent>
+        <DialogActions>
+            <MudButton OnClick="Cancel">No</MudButton>
+            <MudButton Color="@Color" Variant="Variant.Filled" OnClick="Submit">@ButtonText</MudButton>
+        </DialogActions>
+    </MudDialog>
+}
+
+
+@code {
+    [CascadingParameter]
+    private IMudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public bool UseForm { get; set; } = false;
+
+    [Parameter]
+    public bool _disabled { get; set; } = false;
+
+    [Parameter]
+    public string ContentText { get; set; }
+
+    [Parameter]
+    public string ButtonText { get; set; }
+
+    [Parameter]
+    public Color Color { get; set; }
+
+    [Parameter]
+    public string Action { get; set; }
+
+    [Parameter]
+    public int AppointmentId { get; set; }
+
+    [Parameter]
+    public AppointmentViewModel Model { get; set; } = new AppointmentViewModel()
+    {
+        StartTime = DateTime.Now,
+        EndTime = DateTime.Now.AddHours(1)
+    };
+
+    //maste data
+    private List<TbCompany> CompanyList = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        CompanyList = await CompanyService.GetCompaniesAsync();
+
+        if (Action != null && Action == "Update")
+        {
+            _disabled = true;
+        }
+    }
+
+    private async Task Submit()
+    {
+        //new
+        if (UseForm && form.IsValid)
+        {
+            if (Action != null && Action == "New")
+            {
+                // Map AppointmentViewModel -> TxAppointment
+                TxAppointment appointment = new TxAppointment
+                {
+                    //Id = Model.Id,
+                    Title = Model.Title,
+                    Description = Model.Description,
+                    CustId = Model.CustId, // may be null
+                    CustName = Model.CustName,
+                    CustCompany = Model.CustCompany,
+                    StartTime = Model.StartTime ?? DateTime.UtcNow,
+                    EndTime = Model.EndTime ?? DateTime.UtcNow.AddHours(1), // fallback
+                    AppointmentStatus = "SCH",
+                    CreatedBy = "adm001",
+                    CreatedAt = DateTime.UtcNow
+                };
+
+                // Optional: Duration & other logic can be set server-side
+                // appointment.Duration = appointment.EndTime - appointment.StartTime;
+
+                // Call API
+                var response = await AppointmentService.CreateAppointmentAsync(appointment);
+
+                if (response != null)
+                {
+                    MudDialog.Close(DialogResult.Ok(response));
+                }
+            }
+            else if (Action != null && Action == "Update")
+            {
+
+
+                var response = await AppointmentService.UpdateAppointmentAsync(Model);
+
+                if (response != null)
+                {
+                    MudDialog.Close(DialogResult.Ok(response));
+                }
+            }
+
+        }
+        else if (Action != null && Action == "Cancel")
+        {
+
+            var response = await AppointmentService.CancelAppointmentAsync(AppointmentId);
+
+            if (response != null)
+            {
+                MudDialog.Close(DialogResult.Ok(response));
+            }
+        }
+        else
+        {
+            MudDialog.Cancel();
+        }
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    //form control
+    [Parameter] public string Title { get; set; } = "Add Item";
+
+    private MudForm form;
+
+    // A simple validator for demonstration. In real applications, consider using FluentValidation.
+    private Func<AppointmentViewModel, IEnumerable<string>> ModelValidator = model =>
+    {
+        var errors = new List<string>();
+
+        // Required fields
+        if (string.IsNullOrWhiteSpace(model.CustName))
+            errors.Add("Please input a customer name.");
+        if (string.IsNullOrWhiteSpace(model.Title))
+            errors.Add("Please input appointment title.");
+        if (!model.StartTime.HasValue)
+            errors.Add("Please input a start time.");
+        if (!model.EndTime.HasValue)
+            errors.Add("Please input an end time.");
+
+        // Time logic: start must not be after end
+        if (model.StartTime.HasValue && model.EndTime.HasValue)
+        {
+            if (model.StartTime.Value > model.EndTime.Value)
+                errors.Add("Start time cannot be later than end time.");
+            if (model.EndTime.Value < model.StartTime.Value)
+                errors.Add("End time cannot be earlier than start time.");
+        }
+
+        return errors;
+    };
+
+
+
+
+
+}

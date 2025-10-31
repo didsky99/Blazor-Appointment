@@ -1,0 +1,200 @@
+@page "/"
+@using BlazorAppointmentSystem.Client.Services
+@using BlazorAppointmentSystem.Shared.Models
+@using BlazorAppointmentSystem.Shared.Helpers
+@inject AppointmentService AppointmentService
+@inject IDialogService DialogService
+
+
+<MudPaper Class="pa-4" style="max-height: 100%">
+
+    <MudText Typo="Typo.h5" Class="ma-3">Appointment List</MudText>
+
+    @if (appointments == null)
+    {
+        <MudProgressCircular Class="align-content-center" Indeterminate="true" />
+    }
+    else if (appointments.Count == 0)
+    {
+        <MudText Class="ma-4">No appointments found.</MudText>
+        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.PostAdd" Color="Color.Success"
+            @onclick="NewAppointmentAsync">Create New Appointment</MudButton>
+    }
+    else
+    {
+        <MudTable Items="appointments">
+            <ToolBarContent>
+                <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start"
+                    AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                <MudSpacer />
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.PostAdd" Color="Color.Success"
+                    @onclick="NewAppointmentAsync">New Appointment</MudButton>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>Token</MudTh>
+                <MudTh>Title</MudTh>
+                <MudTh>Customer</MudTh>
+                <MudTh>Company</MudTh>
+                <MudTh>Status</MudTh>
+                <MudTh>Start</MudTh>
+                <MudTh>End</MudTh>
+                <MudTh>Duration</MudTh>
+                <MudTh>Action</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd>@context.Token</MudTd>
+                <MudTd>@context.Title</MudTd>
+                <MudTd>@context.CustName</MudTd>
+                <MudTd>@context.CustCompany</MudTd>
+                <MudTd>@context.StatusName</MudTd>
+                <MudTd>@context.StartTime.Value.ToString("dddd, dd MMM yyyy hh:mm tt")</MudTd>
+                <MudTd>@context.EndTime.Value.ToString("dddd, dd MMM yyyy hh:mm tt")</MudTd>
+                <MudTd>@TimeHelpers.FormatDuration(context.Duration)</MudTd>
+                <MudTd>
+                    @if (context.AppointmentStatus == "SCH")
+                    {
+                        <MudIconButton Icon="@Icons.Material.Filled.Edit" Variant="Variant.Filled" Color="Color.Primary"
+                            Size="Size.Medium" @onclick="() => EditAppointmentAsync(context)" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Delete" Variant="Variant.Filled" Color="Color.Error"
+                            Size="Size.Medium" @onclick="() => DeleteAppointmentAsync(context.Id)" />
+                    }
+                    else if (context.AppointmentStatus == "CMP")
+                    {
+                        <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" />
+                    }
+                    else if (context.AppointmentStatus == "CAN")
+                    {
+                        <MudIcon Icon="@Icons.Material.Filled.Cancel" Color="Color.Error" />
+                    }
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+    }
+</MudPaper>
+
+@code {
+
+    //data loading
+    private List<AppointmentViewModel>? appointments;
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadAppointments();
+    }
+
+    private async Task LoadAppointments()
+    {
+        appointments = await AppointmentService.GetAppointmentsAsync();
+        StateHasChanged();
+    }
+
+    //grid control
+    private string searchString1 = "";
+    private HashSet<AppointmentViewModel> selectedItems = new HashSet<AppointmentViewModel>();
+
+    private IEnumerable<AppointmentViewModel> AppointmentViewModels = new List<AppointmentViewModel>();
+
+    private bool FilterFunc1(AppointmentViewModel AppointmentViewModel) => FilterFunc(AppointmentViewModel, searchString1);
+
+    private bool FilterFunc(AppointmentViewModel AppointmentViewModel, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (AppointmentViewModel.Token.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (AppointmentViewModel.Title.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (AppointmentViewModel.CustName.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (AppointmentViewModel.CustCompany.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+
+    //crud control
+    private async Task DeleteAppointmentAsync(int id)
+    {
+        var parameters = new DialogParameters<AppointmentForm>
+{
+{ x => x.UseForm, false }, // Not using form, just confirmation
+{ x => x.Title, "Cancel Appointment" },
+{ x => x.Action, "Cancel" },
+{ x => x.AppointmentId, id },
+{ x => x.ContentText, "Do you want to cancel this appointment?" },
+{ x => x.ButtonText, "Yes" },
+{ x => x.Color, Color.Error }
+};
+
+        var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+        // Show confirmation dialog
+        var dialog = await DialogService.ShowAsync<AppointmentForm>("Delete", parameters);
+        var result = await dialog.Result;
+
+        // Check if dialog was not cancelled
+        if (!result.Canceled)
+        {
+            // Reload appointments
+            await LoadAppointments();
+        }
+    }
+
+    private async Task NewAppointmentAsync()
+    {
+        var parameters = new DialogParameters<AppointmentForm>
+{
+{ x => x.UseForm, true },
+{ x => x.Title, "New Appointment" },
+{ x => x.Action, "New" },
+{ x => x.ButtonText, "Submit" },
+{ x => x.Color, Color.Success }
+};
+
+        // Show the dialog and await the result
+        var dialog = await DialogService.ShowAsync<AppointmentForm>("Add Appointment", parameters);
+        var result = await dialog.Result;
+
+        // Check if dialog was not cancelled
+        if (!result.Canceled)
+        {
+            // Reload appointments
+            await LoadAppointments();
+        }
+    }
+
+    private async Task EditAppointmentAsync(AppointmentViewModel appointment)
+    {
+        var parameters = new DialogParameters<AppointmentForm>
+{
+{ x => x.UseForm, true },
+{ x => x.Title, "Update Appointment" },
+{ x => x.Action, "Update" },
+{ x => x.ButtonText, "Update" },
+{ x => x.Color, Color.Info },
+{ x => x.Model, new AppointmentViewModel
+{
+Id = appointment.Id,
+Title = appointment.Title,
+Description = appointment.Description,
+CustId = appointment.CustId,
+CustName = appointment.CustName,
+CustCompany = appointment.CustCompany,
+StartTime = appointment.StartTime,
+EndTime = appointment.EndTime
+}
+}
+};
+
+        // Show the dialog and await the result
+        var dialog = await DialogService.ShowAsync<AppointmentForm>("Add Appointment", parameters);
+        var result = await dialog.Result;
+
+        // Check if dialog was not cancelled
+        if (!result.Canceled)
+        {
+            // Reload appointments
+            await LoadAppointments();
+        }
+    }
+
+}

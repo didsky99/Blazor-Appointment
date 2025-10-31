@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\client\\Client.csproj": {}
+    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\client\\Client.csproj": {
+    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\client\\Client.csproj",
+        "projectPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\Client.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\Blazor Appointment\\client\\obj\\",
+        "outputPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,7 +27,11 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -73,7 +77,7 @@
             },
             "MudBlazor": {
               "target": "Package",
-              "version": "[6.12.0, )"
+              "version": "[8.13.0, )"
             },
             "xunit": {
               "target": "Package",
@@ -108,6 +112,73 @@
       "runtimes": {
         "browser-wasm": {
           "#import": []
+        }
+      }
+    },
+    "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\Shared.csproj",
+        "projectName": "Shared",
+        "projectPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hp\\OneDrive\\Documents\\Didid\\Dimas Ariadi Widodo\\Project\\BlazorAppointmentSystem\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

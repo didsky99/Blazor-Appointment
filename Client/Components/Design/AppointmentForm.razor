@@ -79,19 +79,19 @@ else
     public bool _disabled { get; set; } = false;
 
     [Parameter]
-    public string ContentText { get; set; }
+    public string ContentText { get; set; } = "";
 
     [Parameter]
-    public string ButtonText { get; set; }
+    public string ButtonText { get; set; } = "Ok";
 
     [Parameter]
-    public Color Color { get; set; }
+    public Color Color { get; set; } = Color.Primary;
 
     [Parameter]
-    public string Action { get; set; }
+    public string Action { get; set; } = "Detail";
 
     [Parameter]
-    public int AppointmentId { get; set; }
+    public int AppointmentId { get; set; } = 0;
 
     [Parameter]
     public AppointmentViewModel Model { get; set; } = new AppointmentViewModel()
@@ -181,7 +181,7 @@ else
     //form control
     [Parameter] public string Title { get; set; } = "Add Item";
 
-    private MudForm form;
+    private MudForm form = new MudForm();
 
     // A simple validator for demonstration. In real applications, consider using FluentValidation.
     private Func<AppointmentViewModel, IEnumerable<string>> ModelValidator = model =>

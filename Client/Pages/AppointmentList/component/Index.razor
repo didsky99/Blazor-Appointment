@@ -132,7 +132,7 @@
         var result = await dialog.Result;
 
         // Check if dialog was not cancelled
-        if (!result.Canceled)
+        if (result != null && !result.Canceled)
         {
             // Reload appointments
             await LoadAppointments();
@@ -155,7 +155,7 @@
         var result = await dialog.Result;
 
         // Check if dialog was not cancelled
-        if (!result.Canceled)
+        if (result != null && !result.Canceled)
         {
             // Reload appointments
             await LoadAppointments();
@@ -190,7 +190,7 @@ EndTime = appointment.EndTime
         var result = await dialog.Result;
 
         // Check if dialog was not cancelled
-        if (!result.Canceled)
+        if (result != null && !result.Canceled)
         {
             // Reload appointments
             await LoadAppointments();

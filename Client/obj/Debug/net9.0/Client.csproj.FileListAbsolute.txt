@@ -50,8 +50,6 @@ C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointme
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\mscorlib.k5iaovx9v7.wasm
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\MudBlazor.845kbj1w9a.wasm
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\netstandard.6sr1qvn64m.wasm
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Shared.6jpkbsblbe.pdb
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Shared.wk02vbvdc6.wasm
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.AppContext.oz2126q8p4.wasm
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.Buffers.6p4t8ehf1e.wasm
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.Collections.Concurrent.m1bil1ufmx.wasm
@@ -272,7 +270,6 @@ C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointme
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.Drawing.ylisjr29ri.wasm.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.Collections.NonGeneric.3b4y8ju3rx.wasm.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Microsoft.JSInterop.WebAssembly.rryvnj25xi.wasm.gz
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Shared.6jpkbsblbe.pdb.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\MudBlazor.845kbj1w9a.wasm.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Microsoft.VisualBasic.60s7uue63g.wasm.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.Runtime.Intrinsics.wg0gheep2z.wasm.gz
@@ -382,7 +379,6 @@ C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointme
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.Collections.vuew0td5j6.wasm.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.Threading.Tasks.Dataflow.mmn1m3v8t1.wasm.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.Runtime.InteropServices.RuntimeInformation.6mx0f3scm8.wasm.gz
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Shared.wk02vbvdc6.wasm.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\System.Resources.Reader.gvrabkwtt5.wasm.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Microsoft.CSharp.7sv91sqvhk.wasm.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\xunit.abstractions.4ksum12hez.wasm.gz
@@ -859,7 +855,6 @@ C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointme
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\vfkyhh2ldv-nqyz2ahkgc.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\6nyyltqtfd-8rbvw3on5j.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\944pbegy10-pgzcir2wm2.gz
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\01vksthv0t-cbsknxibip.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\7urzrvke3z-bqjiyaj88i.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\g7e9nd271f-c2jlpeoesf.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\8g8hidd5hw-erw9l3u2r3.gz
@@ -1117,8 +1112,6 @@ C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointme
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\co6pboq40b-tjcz0u77k5.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\zuvpeafw58-tptq2av103.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\x7uazyfd7o-lfu7j35m59.gz
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\sole8wq4et-wk02vbvdc6.gz
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\aoa62tn1nj-6jpkbsblbe.gz
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\staticwebassets.development.json
@@ -1128,10 +1121,17 @@ C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointme
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\refint\Client.dll
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\Client.pdb
 C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\ref\Client.dll
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Client.tuyn8u3gg0.pdb
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Client.6rzkf0c3xz.wasm
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Client.6rzkf0c3xz.wasm.gz
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Client.tuyn8u3gg0.pdb.gz
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\cpjbyt2peh-6rzkf0c3xz.gz
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\xbmipl6i3z-tuyn8u3gg0.gz
-C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\0kih5qk3hm-1qmd7qfjx2.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Shared.2osa3faier.pdb
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Shared.ihkbmlxxrb.wasm
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Shared.2osa3faier.pdb.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Shared.ihkbmlxxrb.wasm.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\sole8wq4et-ihkbmlxxrb.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\aoa62tn1nj-2osa3faier.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\client\obj\Debug\net9.0\compressed\01vksthv0t-cdy417ry8v.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Client.yh1rc0ctxy.pdb
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Client.69lprzxmqx.wasm
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Client.69lprzxmqx.wasm.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\bin\Debug\net9.0\wwwroot\_framework\Client.yh1rc0ctxy.pdb.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\cpjbyt2peh-69lprzxmqx.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\xbmipl6i3z-yh1rc0ctxy.gz
+C:\Users\Hp\OneDrive\Documents\Didid\Dimas Ariadi Widodo\Project\BlazorAppointmentSystem\Client\obj\Debug\net9.0\compressed\0kih5qk3hm-jpc3hernrm.gz

@@ -32,7 +32,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: .net-app
+          name: blazor-app
           path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
@@ -43,7 +43,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
+          name: blazor-app
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -52,4 +52,5 @@ jobs:
           app-name: 'AppointmentDashboard'
           slot-name: 'Production'
           package: .
+
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EE4E86F83384C7EA72A1192E312F93A }}

@@ -18,14 +18,12 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 // 🔧 Determine environment & API base URL dynamically
 string apiBaseUrl;
 
-if (app.Environment.IsDevelopment())
-{
-    apiBaseUrl = "https://localhost:7250/"; // local development server
-}
-else
-{
-    apiBaseUrl = builder.HostEnvironment.BaseAddress;
-}
+#if DEBUG
+apiBaseUrl = "https://localhost:7250/"; // local development server
+#else
+apiBaseUrl = builder.HostEnvironment.BaseAddress;
+// For hosted Blazor WASM on Azure, API lives under the same domain (e.g. /api/)
+#endif
 
 // 🧩 Register HttpClient with dynamic base URL
 builder.Services.AddScoped(sp => new HttpClient

@@ -9,6 +9,11 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  AZURE_WEBAPP_NAME: AppointmentDashboard    # Set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # Set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '9.0.x'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,18 +26,17 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.x'
+          dotnet-version: ${{ env.DOTNET_VERSION }} 
 
       - name: Restore dependencies
         run: dotnet restore
 
       # Build the full solution (Client + Server + Shared)
-      - name: Build the solution
-        run: dotnet build BlazorAppointmentSystem.sln --configuration Release --no-restore
-
-      # 🔧 IMPORTANT: Publish the Server project — this will also bundle Client into /wwwroot
-      - name: Publish Server project
-        run: dotnet publish ./Server/Server.csproj -c Release -o ${{ env.DOTNET_ROOT }}
+      - name: dotnet build and publish
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
@@ -53,11 +57,12 @@ jobs:
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'AppointmentDashboard'
+        with: 
+          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
           slot-name: 'Production'
-          package: ${{ env.DOTNET_ROOT }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EE4E86F83384C7EA72A1192E312F93A }}
+
 
 
 
